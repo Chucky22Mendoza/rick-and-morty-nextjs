@@ -5,10 +5,14 @@ import Block from '../Block';
 import { getProcessData } from '@/app/actions';
 import useCharacterStore from '@/store/CharactersStore';
 import useInfoStore from '@/store/InfoStore';
-import SmallButton from '../ui/SmallButton';
-import styles from './home.module.css';
-import InputFilter from '../ui/InputFilter';
 import Character from '../Character';
+import ListEvents from './ListEvents';
+import CharacterLoader from '../Character/CharacterLoader';
+import styles from './home.module.css';
+import useLastVisitedStore from '@/store/LastVisitedStore';
+import Slug from '../Character/Slug';
+import SmallButton from '../ui/SmallButton';
+import Image from 'next/image';
 
 async function loadData(page: number = 1, name: string | null = null) {
   const characterState = useCharacterStore.getState();
@@ -24,10 +28,11 @@ function Home() {
   const characters = useCharacterStore((state) => state.characters);
   const isLoading = useCharacterStore((state) => state.isLoading);
   const maxPages = useInfoStore((state) => state.info.pages);
+  const characterVisited = useLastVisitedStore((state) => state.characterVisited);
   const [page, setPage] = useState<number>(1);
   const [isFilterClicked, setIsFilterClicked] = useState<boolean>(false);
-  const [active, setActive] = useState<boolean>(false);
   const [nameFilter, setNameFilter] = useState<string | null>(null);
+  const [toggleVisited, setToggleVisited] = useState<boolean>(false);
 
   useEffect(() => {
     // if (isFilterClicked && nameFilter) {
@@ -41,70 +46,59 @@ function Home() {
 
   return (
     <>
-      <Block blockTitle="Últimas visitas">
-        <span>Ultimas 5 visitas</span>
-      </Block>
-      <Block
-        blockTitle={`Personajes${isFilterClicked ? ` - ${nameFilter}` : ''}`}
-        blockComponent={(
-          <>
-            <InputFilter
-              propsInput={{
-                placeholder: "Filtrar por nombre",
-                value: nameFilter ?? '',
-              }}
-              onChange={setNameFilter}
-              onClick={() => {
-                setIsFilterClicked(true);
-                setPage(1);
-              }}
-            />
-            <SmallButton
-              buttonType={page === 1 ? 'secondary-disabled' : 'secondary'}
-              text="-"
-              onClick={() => {
-                if (page === 1 || isLoading) return null;
-                setPage(page - 1);
-              }}
-            />
-            <div className={styles.selector}>
+      {
+        characterVisited.length > 0 && (
+          <Block
+            blockTitle="Last visited characters"
+            headerComponent={(
               <SmallButton
                 buttonType="primary"
-                text={`Página ${page}/${maxPages}`}
-                onClick={() => setActive(!active)}
+                iconLeft={(
+                  <Image
+                    src="/arrow.svg"
+                    width={18}
+                    height={18}
+                    alt="arrow"
+                    style={toggleVisited ? { transform: 'rotate(180deg)', transition: 'all .3s' } : { transform: 'rotate(0deg)', transition: 'all .3s'}}
+                  />
+                )}
+                onClick={() => setToggleVisited(!toggleVisited)}
               />
-              <div className={active ? styles.active : ''}>
+            )}
+          >
+            <div className={styles.list} style={!toggleVisited ? { marginTop: '-100%' } : {}}>
+              <div className={styles.rows}>
                 {
-                  Array.from({ length: maxPages }, ((_, i) => (
-                    <div>
-                      <button
-                        onClick={() => {
-                          setPage(i + 1);
-                          setActive(false);
-                        }}
-                      >
-                        {i + 1}
-                      </button>
-                    </div>
-                  )))
+                  characterVisited.map((character) => <Slug key={`character-slug-${character.id}`} character={character} />)
                 }
               </div>
             </div>
-            <SmallButton
-              buttonType={page === maxPages ? 'secondary-disabled' : 'secondary'}
-              text="+"
-              onClick={() => {
-                if (page === maxPages || isLoading) return null;
-                setPage(page + 1);
-              }}
-            />
-          </>
+          </Block>
+        )
+      }
+      <Block
+        blockTitle={`Characters${isFilterClicked ? ` - ${nameFilter}` : ''}`}
+        isHeaderSticky
+        headerComponent={(
+          <ListEvents
+            isLoading={isLoading}
+            maxPages={maxPages}
+            page={page}
+            setPage={setPage}
+          />
         )}
       >
         {
           isLoading
-            ? <div>loading</div>
-            : (
+            ? (
+              <div className={styles.rows}>
+                {
+                  Array.from({ length: 20 }, ((_, i) => (
+                    <CharacterLoader key={`skeleton-${i}`} />
+                  )))
+                }
+              </div>
+            ) : (
               <div className={styles.rows}>
                 {characters.map((character) => (
                   <Character key={character.id} character={character} />

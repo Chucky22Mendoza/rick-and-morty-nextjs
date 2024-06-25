@@ -5,13 +5,19 @@ import styles from './block.module.css';
 type Props = {
   children: React.ReactNode;
   blockTitle: string;
-  blockComponent?: React.ReactNode;
+  headerComponent?: React.ReactNode;
+  isHeaderSticky?: boolean;
 };
 
-function Block({ children, blockTitle, blockComponent }: Props) {
+function Block({
+  children,
+  blockTitle,
+  headerComponent,
+  isHeaderSticky = false,
+}: Props) {
   return (
     <section className={styles.block}>
-      <Header title={blockTitle} components={blockComponent} />
+      <Header title={blockTitle} components={headerComponent} isSticky={isHeaderSticky} />
       <div>
         {children}
       </div>

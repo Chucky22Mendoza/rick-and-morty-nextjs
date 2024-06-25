@@ -5,7 +5,7 @@
   gap: 1.5rem;
   max-width: 120rem;
   width: 100%;
-  padding: 1.6rem;
+  padding: .4rem 1.6rem 1.6rem;
 }
 
 .header {
@@ -13,9 +13,10 @@
   justify-content: space-between;
   align-items: center;
   gap: 1.6rem;
-  padding: 0 0 1.2rem;
+  padding: 1.2rem 0;
   flex: 1 0;
   align-self: stretch;
+  box-shadow: 0px 2px 6px 0px rgba(42, 50, 63, 0.10);
 }
 
 .header > div {
@@ -41,4 +42,17 @@
   display: flex;
   gap: .8rem;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .header > div > div {
+    gap: 0;
+  }
+
+  .header > div > h1 {
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2rem;
+  }
 }

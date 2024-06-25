@@ -1,0 +1,6 @@
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 8rem 2rem 2rem;
+}

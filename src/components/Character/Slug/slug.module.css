@@ -1,0 +1,110 @@
+.slug {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: .8rem;
+  border: 1px solid transparent;
+  transition: all .3s;
+}
+
+.slug > img {
+  position: relative;
+  border-radius: 100% 0% 100% 0% / 30% 52% 48% 70%;
+  transition: all .5s;
+  z-index: 2;
+}
+
+.slug:hover > img {
+  transform: rotate(15deg) scale(1.2) skew(6deg);
+  -webkit-transform: rotate(15deg) scale(1.2) skew(6deg);
+  -moz-transform: rotate(15deg) scale(1.2) skew(6deg);
+  border-radius: 90% 4% 90% 4% / 30% 52% 48% 70%;
+}
+
+.slug > div {
+  display: flex;
+  justify-content: center;
+  gap: .8rem;
+  align-items: center;
+}
+
+.info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  background-color: var(--color-primary);
+  border-radius: 62% 38% 100% 22% / 22% 98% 2% 78%;
+  padding: 1rem;
+  margin-left: -1.2rem;
+  z-index: 1;
+  transition: all .3s;
+  max-width: 16rem;
+  width: 100%;
+}
+
+.slug:hover .info {
+  transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  border-radius: 42% 38% 100% 22% / 22% 98% 20% 78%;
+}
+
+.info > h2, .info > span {
+  margin-left: .5rem;
+  color: var(--txt-inverse);
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.slug:hover .info > h2, .slug:hover .info > span {
+  margin-left: 1rem;
+}
+
+.info > span {
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.dot {
+  display: flex;
+  padding: .8rem;
+  border-top-right-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  transform: translateX(-150%);
+  margin-left: -1rem;
+  transition: all .3s;
+}
+
+.dot.green {
+  background-color: #32B332;
+}
+
+.dot.red {
+  background-color: #cc0000;
+}
+
+.dot.gray {
+  background-color: #7c7e83;
+}
+
+.slug:hover .dot {
+  margin-left: -3rem;
+  transform: translateX(0);
+}
+
+.dot > span {
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--txt-inverse);
+  margin-left: 3rem;
+}
+
+@media (max-width: 768px) {
+  .slug .dot {
+    margin-left: -3rem;
+    transform: translateX(0);
+  }
+}

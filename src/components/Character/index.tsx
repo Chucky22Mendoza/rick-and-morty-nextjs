@@ -1,8 +1,10 @@
-import React from 'react';
-import Image from 'next/image';
+import React, { Suspense, lazy } from 'react';
 import Link from 'next/link';
 import { ICharacter } from '@/index';
+import SkeletonLoader from './SkeletonLoader';
 import styles from './characters.module.css';
+
+const Image = lazy(() => import('next/image'));
 
 type Props = {
   character: ICharacter;
@@ -11,8 +13,10 @@ type Props = {
 function Character({ character }: Props) {
   return (
     <Link href={`/${character.id}`} className={styles.character}>
-      <Image src={character.image} alt={character.name} className="img-fluid rounded-pill" width={150} height={150} loading="lazy" />
-      <div>
+      <Suspense fallback={<SkeletonLoader />}>
+        <Image src={character.image} alt={character.name} className="img-fluid rounded-pill" width={200} height={200} />
+      </Suspense>
+      <div className={styles.info}>
         <h3>{character.name}</h3>
         <span>{`Origin: ${character.origin && character.origin.name}`}</span>
       </div>

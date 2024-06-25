@@ -1,0 +1,222 @@
+.content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  isolation: isolate;
+  width: 100%;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  border-radius: 1.6rem;
+}
+
+.order-counter {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem 2rem;
+  gap: 2rem;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0;
+}
+
+.order-counter > img {
+  border-radius: 50%;
+  margin-top: -25%;
+}
+
+.order-counter > span {
+  font-weight: 500;
+  font-size: 2.2rem;
+  line-height: 3.2rem;
+  text-align: center;
+  letter-spacing: 0.015rem;
+  /* yimi/day/text/primary */
+  color: var(--txt-inverse);
+}
+
+.order-counter > button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1.1rem 1.8rem;
+  gap: .8rem;
+  border: .2rem solid rgba(255, 255, 255, 0.125);
+  border-radius: 3.6rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0.01rem;
+  /* yimi/day/btn/text */
+  color: #FFF;
+  transition: all 0.3s;
+  cursor: default;
+}
+
+.order-counter > button.green {
+  background-color: #32B332;
+}
+
+.order-counter > button.red {
+  background-color: #cc0000;
+}
+
+.order-counter > button.gray {
+  background-color: #7c7e83;
+}
+
+.order-counter > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  gap: 1rem;
+}
+
+.order-counter > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  gap: .4rem;
+  min-width: 14.35rem;
+}
+
+.order-counter > div > div h2 {
+  font-weight: 500;
+  font-size: 1.7rem;
+  line-height: 2.4rem;
+  text-align: center;
+  letter-spacing: 0.015rem;
+  /* yimi/day/text/primary */
+  color: var(--txt-inverse);
+}
+
+.order-counter > div > div span {
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  text-align: center;
+  letter-spacing: 0.04rem;
+  /* yimi/day/text/primary */
+  color: var(--txt-inverse);
+}
+
+.rect {
+  width: .1rem;
+  height: 2.4rem;
+  /* yimi/day/input/border */
+  background: var(--y-input-border);
+}
+
+.navlink {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 4rem 1.5rem 1rem;
+  gap: 1rem;
+  width: 100%;
+  /* yimi/day/bg/light */
+  background: var(--y-bg-light);
+  /* yimi/day/border/border 20 */
+  border-bottom: .1rem solid var(--y-border-border-20);
+  transition: all 0.3s;
+}
+
+.navlink img {
+  transform: rotate(-90deg);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(2%) saturate(7%) hue-rotate(6deg) brightness(104%) contrast(104%);
+}
+
+.navlink:last-child {
+  border-bottom: none;
+  border-bottom-left-radius: 1.6rem;
+  border-bottom-right-radius: 1.6rem;
+}
+
+.navlink > div:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 1rem 0 .5rem;
+  gap: 1rem;
+}
+
+.navlink > div > h2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  gap: .2rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0.01rem;
+  /* yimi/day/text/primary */
+  color: var(--txt-inverse);
+}
+
+.navlink > div:last-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navlink > div:last-child > span {
+  padding: .2rem .8rem .3rem;
+  gap: 1rem;
+  /* yimi/scales/orange/10 */
+  background: var(--y-scales-orange-10);
+  border-radius: 1.2rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.05rem;
+  /* yimi/scales/orange/60 */
+  color: var(--y-scales-orange-60);
+}
+
+.navlink:hover {
+  background-color: var(--y-btn-hover-bg);
+}
+
+.navlink.prox {
+  cursor: not-allowed;
+}
+
+.navlink.prox:hover {
+  background: var(--y-bg-light);
+}
+
+.navlink.prox > div:first-child,
+.navlink.prox > div:last-child > img {
+  opacity: .4;
+}
+
+@media (min-width: 769px) {
+  .content {
+    max-width: 32rem;
+  }
+}

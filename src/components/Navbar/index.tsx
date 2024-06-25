@@ -1,12 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './navbar.module.css';
-import logo from '@/assets/logo.svg';
 
 function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div>
-        <h1>Rick and Morty</h1>
+        <Link href="/">Rick and Morty</Link>
       </div>
       <div>
         <Image src="/logo.svg" width={44} height={44} alt="logo" />

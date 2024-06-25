@@ -1,0 +1,22 @@
+.loader {
+  width: 50px;
+  height: 50px;
+  color:#84A98C;
+  --c: radial-gradient(farthest-side, var(--color-blur) 92%,#0000);
+  background:
+    var(--c) 50% 0   /12px 12px,
+    var(--c) 50% 100%/12px 12px,
+    var(--c) 100% 50%/12px 12px,
+    var(--c) 0    50%/12px 12px,
+    var(--c) 50%  50%/12px 12px,
+    linear-gradient(var(--color-blur) 0 0) 50% 50%/4px 100%,
+    linear-gradient(var(--color-blur) 0 0) 50% 50%/100% 4px;
+  background-repeat: no-repeat;
+  animation: s8 1s infinite linear;
+}
+
+@keyframes s8 {
+  to {
+    transform: rotate(.5turn);
+  }
+}
