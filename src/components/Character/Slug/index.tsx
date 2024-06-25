@@ -1,5 +1,4 @@
 import React from 'react';
-import { ICharacter } from '@/index';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './slug.module.css';

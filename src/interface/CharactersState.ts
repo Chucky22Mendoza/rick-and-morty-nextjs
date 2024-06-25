@@ -1,5 +1,3 @@
-import { ICharacter } from "..";
-
 export default interface ICharactersState {
   characters: ICharacter[];
   isLoading: boolean;

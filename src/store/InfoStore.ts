@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import IInfoState from '@/interface/InfoState';
-import { IInfo } from '..';
 
 const useInfoStore = create<IInfoState>((set) => ({
   info: {

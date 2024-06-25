@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import ILastVisitedState from '@/interface/LastVisitedState';
 import { persist } from 'zustand/middleware';
-import { ICharacter } from '..';
 
 const useLastVisitedStore = create(persist<ILastVisitedState>((set) => ({
   characterVisited: [],

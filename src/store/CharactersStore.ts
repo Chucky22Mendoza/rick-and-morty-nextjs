@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import ICharacterState from '@/interface/CharactersState';
-import { ICharacter } from '..';
 
 const useCharacterStore = create<ICharacterState>((set) => ({
   characters: [],

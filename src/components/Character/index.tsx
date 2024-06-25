@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from 'react';
 import Link from 'next/link';
-import { ICharacter } from '@/index';
 import SkeletonLoader from './SkeletonLoader';
 import styles from './characters.module.css';
 

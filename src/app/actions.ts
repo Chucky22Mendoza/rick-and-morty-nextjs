@@ -1,7 +1,5 @@
 'use server';
 
-import { ICharacter, IResponseData } from "..";
-
 export async function getProcessData(page: number = 1, name: string | null = null): Promise<IResponseData> {
   try {
     const response = await fetch(`${process.env.api_service}/character/?page=${page}${name ? `&name=${name}` : ''}`, {

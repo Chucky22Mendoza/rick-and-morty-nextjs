@@ -1,16 +1,16 @@
-export interface IResponseData {
+interface IResponseData {
   info: IInfo;
   results: ICharacter[];
 }
 
-export interface IInfo {
+interface IInfo {
   count: number;
   pages: number;
   next: string;
   prev: any;
 }
 
-export interface ICharacter {
+interface ICharacter {
   id: number;
   name: string;
   status: string;
@@ -25,12 +25,12 @@ export interface ICharacter {
   created: string;
 }
 
-export interface IOrigin {
+interface IOrigin {
   name: string;
   url: string;
 }
 
-export interface ILocation {
+interface ILocation {
   name: string;
   url: string;
 }

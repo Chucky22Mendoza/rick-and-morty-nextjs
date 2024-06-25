@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { ICharacter } from '@/index';
 import useLastVisitedStore from '@/store/LastVisitedStore';
 import Profile from './Profile';
 import styles from './character-page.module.css';
