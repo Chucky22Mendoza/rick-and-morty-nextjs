@@ -1,0 +1,122 @@
+.medium {
+  display: inline-flex;
+  max-height: 4.6rem;
+  height: 4.6rem;
+  padding: var(--spacing-s-3, 1.2rem) var(--spacing-s-5, 2rem);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-s-2, 0.8rem);
+  flex-shrink: 0;
+  border-radius: var(--border-b-rad-6, 3rem);
+  transition: all .3s;
+  box-sizing: border-box;
+}
+
+.medium > span {
+  color: var(--y-text-inverse, #FFF);
+  /* Label/l */
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem; /* 133.333% */
+  letter-spacing: 0.01rem;
+  /* overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow-wrap: anywhere; */
+}
+
+.medium.primary {
+  background: var(--y-btn-primary-bg, #0051FF);
+}
+
+.medium.primary > span {
+  color: var(--y-text-inverse, #FFF);
+}
+
+.medium.primary:hover {
+  background: var(--y-btn-primary-hover-bg, #3374FF);
+}
+
+.medium.primary:hover > span {
+  color: var(--y-text-inverse, #FFF);
+}
+
+.medium.secondary {
+  background: var(--y-btn-bg, #FFF);
+}
+
+.medium.secondary > span {
+  color: var(--y-btn-text, #333B48);
+}
+
+.medium.secondary:hover {
+  background: var(--y-btn-hover-bg, #F7F7F8);
+}
+
+.medium.secondary:hover > span {
+  color: var(--y-btn-hover-text, #4D596A);
+}
+
+.medium.tertiary {
+  background: var(--y-btn-bg, #FFF);
+}
+
+.medium.tertiary > span {
+  color: var(--y-btn-primary-text, #0051FF);
+}
+
+.medium.tertiary:hover {
+  background: var(--y-btn-hover-bg, #F7F7F8);
+}
+
+.medium.tertiary:hover > span {
+  color: var(--y-btn-primary-hover-text, #003AB8);
+}
+
+.medium.outline {
+  border: .2rem solid var(--y-btn-border, #EDEFF2);
+  background: var(--y-btn-bg, #FFF);
+}
+
+.medium.outline > span {
+  color: var(--y-btn-text, #333B48);
+}
+
+.medium.outline:hover {
+  border: .2rem solid var(--y-btn-hover-border, #D8DEE6);
+  background: var(--y-btn-hover-bg, #F7F7F8);
+}
+
+.medium.outline:hover > span {
+  color: var(--y-btn-hover-text, #4D596A);
+}
+
+.medium.delete {
+  border: .2rem solid var(--y-btn-danger-border, #F42D2D);
+  background: var(--y-btn-danger-bg, #F42D2D);
+}
+
+.medium.delete > span {
+  color: var(--y-text-inverse, #FFF);
+}
+
+.medium.delete:hover {
+  border: .2rem solid var(--y-btn-danger-hover-bg, #C00);
+  background: var(--y-btn-danger-hover-bg, #C00);
+}
+
+.medium.delete:hover > span {
+  color: var(--y-text-inverse, #FFF);
+}
+
+.medium.disabled {
+  border-radius: var(--border-b-rad-6, 3rem);
+  background: var(--y-btn-generic-disabled-bg, #EDEFF2);
+}
+
+.medium.disabled > span {
+  color: var(--y-btn-generic-disabled-text, #A0A2A7);
+}

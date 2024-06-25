@@ -1,0 +1,45 @@
+.input-container {
+  display: flex;
+  align-items: center;
+  flex: 1 0 0;
+  position: relative;
+  min-width: 17rem;
+  align-self: stretch;
+  background-color: var(--txt-inverse);
+  padding: 0;
+  gap: 0.8rem;
+  border-radius: 1.6rem;
+  overflow: hidden;
+}
+
+.input-container > input {
+  background-color: transparent;
+  padding: 0.8rem 1.6rem;
+  outline: none;
+
+  color: var(--txt-primary);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem; /* 133.333% */
+  letter-spacing: 0.01rem;
+  border: none;
+}
+
+.input-container > input::placeholder {
+  color: var(--color-tertiary);
+}
+
+.input-container > button {
+  display: flex;
+  align-self: stretch;
+  flex: 1 0 0;
+  padding: 0 1rem;
+  align-items: center;
+  background-color: var(--color-blur);
+  transition: all .3s;
+}
+
+.input-container > button:hover {
+  opacity: .75;
+}

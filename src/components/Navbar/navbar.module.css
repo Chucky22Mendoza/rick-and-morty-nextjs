@@ -1,0 +1,42 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.6rem 2rem;
+  background-color: var(--color-primary);
+  width: 100dvw;
+}
+
+.navbar > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.navbar > div:first-child {
+  justify-content: flex-start;
+}
+
+.navbar > div:last-child {
+  justify-content: flex-end;
+}
+
+.navbar > div > img {
+  border-radius: 50%;
+  filter: brightness(0) saturate(100%) invert(68%) sepia(30%) saturate(267%) hue-rotate(81deg) brightness(89%) contrast(88%);
+}
+
+.navbar > div > h1 {
+  color: var(--color-blur);
+  font-size: 2.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 3.2rem;
+  flex: 1 0;
+  text-align: left;
+}

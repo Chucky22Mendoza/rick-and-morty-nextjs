@@ -1,0 +1,152 @@
+.primary, .primary-active, .primary-disabled, .primary-hover {
+  display: inline-flex;
+  padding: var(--spacing-s-2, 0.8rem) var(--spacing-s-4, 1.6rem);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-s-2, 0.8rem);
+  border-radius: 3.5rem;
+  transition: all .3s;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.primary > span,
+.primary-active > span,
+.primary-disabled > span,
+.primary-hover > span {
+  color: var(--txt-primary);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem; /* 133.333% */
+  letter-spacing: 0.01rem;
+}
+
+.primary {
+  background: transparent;
+}
+
+.primary > span {
+  color: var(--txt-primary);
+}
+
+.primary:hover, .primary-hover {
+  background: #FFF;
+}
+
+.primary:hover > span, .primary-hover > span {
+  color: #4D596A;
+}
+
+.primary-active {
+  background: var(--color-blur);
+  cursor: default;
+}
+
+.primary-active:hover {
+  opacity: .75;
+}
+
+.primary-active > span {
+  color: var(--txt-inverse);
+}
+
+.primary-disabled {
+  background: var(--color-secondary);
+  cursor: not-allowed;
+}
+
+.primary-disabled > span {
+  color: #A0A2A7;
+}
+
+.secondary, .secondary-active, .secondary-disabled, .secondary-hover, .secondary-outline {
+  display: inline-flex;
+  padding: var(--spacing-s-2, 0.8rem) 1.4rem;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-s-2, 0.8rem);
+  border-radius: 1.8rem;
+  background: var(--y-bg-light, #FFF);
+  transition: all .3s;
+  box-sizing: border-box;
+}
+
+.secondary > span,
+.secondary-active > span,
+.secondary-disabled > span,
+.secondary-hover > span,
+.secondary-outline > span {
+  color: #333B48;
+  /* Label/m */
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.6rem; /* 123.077% */
+  letter-spacing: 0.05rem;
+}
+
+.secondary {
+  background: var(--color-secondary);
+}
+
+.secondary > span {
+  color: var(--txt-inverse);
+}
+
+.secondary:hover, .secondary-hover, .secondary-outline:hover {
+  background:#F2F3F6;
+}
+
+.secondary:hover > span, .secondary-hover > span, .secondary-outline:hover > span {
+  color: #4D596A;
+}
+
+.secondary-active {
+  cursor: default;
+  background: var(--txt-primary);
+}
+
+.secondary-active > span {
+  color: var(--txt-inverse, #FFF);
+}
+
+.secondary-disabled {
+  cursor: not-allowed;
+  background: var(--txt-inverse, #FFF);
+}
+
+.secondary-disabled > span {
+  color: #A0A2A7;
+}
+
+.secondary-outline {
+  border: 2px solid #EDEFF2;
+  background: #FFF;
+}
+
+.tertiary {
+  display: inline-flex;
+  padding: var(--spacing-s-2, 0.8rem) var(--spacing-s-3, 1.2rem);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-s-2, 0.8rem);
+  border-radius: var(--border-b-rad-6, 3rem);
+  background: transparent;
+  transition: all .3s;
+  box-sizing: border-box;
+}
+
+.tertiary:hover {
+  background: var(--txt-inverse, #FFF);
+}
+
+.tertiary > span {
+  color: var(--color-blur);
+  /* Label/l */
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem; /* 133.333% */
+  letter-spacing: 0.01rem;
+}
