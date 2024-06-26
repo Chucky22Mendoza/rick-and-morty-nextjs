@@ -10,22 +10,20 @@ type Props = {
   maxPages: number;
 };
 
+/**
+ * Renders a list of events with pagination controls.
+ *
+ * @param {Props} page - The current page number.
+ * @param {Props} setPage - Function to set the current page number.
+ * @param {Props} maxPages - The maximum number of pages.
+ * @param {Props} isLoading - Boolean indicating if data is loading.
+ * @returns {JSX.Element} - The rendered list of events with pagination controls.
+ */
 function ListEvents({ page, setPage, maxPages, isLoading }: Props) {
   const [active, setActive] = useState<boolean>(false);
 
   return (
-    <>
-      {/* <InputFilter
-        propsInput={{
-          placeholder: "Filtrar por nombre",
-          value: nameFilter ?? '',
-        }}
-        onChange={setNameFilter}
-        onClick={() => {
-          setIsFilterClicked(true);
-          setPage(1);
-        }}
-      /> */}
+    <div className={styles.events}>
       <SmallButton
         buttonType={page === 1 ? 'secondary-disabled' : 'secondary'}
         text="-"
@@ -65,7 +63,7 @@ function ListEvents({ page, setPage, maxPages, isLoading }: Props) {
           setPage(page + 1);
         }}
       />
-    </>
+    </div>
   )
 }
 

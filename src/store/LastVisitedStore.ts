@@ -2,6 +2,14 @@ import { create } from 'zustand';
 import ILastVisitedState from '@/interface/LastVisitedState';
 import { persist } from 'zustand/middleware';
 
+/**
+ * Creates a zustand store for managing the last visited characters.
+ *
+ * The store keeps track of up to 5 recently visited characters, ensuring no duplicates.
+ *
+ * @param set - Function provided by Zustand to update the store state
+ * @returns The zustand store for managing last visited characters.
+ */
 const useLastVisitedStore = create(persist<ILastVisitedState>((set) => ({
   characterVisited: [],
   addCharacter: (character: ICharacter) => set((state) => {

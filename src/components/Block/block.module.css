@@ -22,19 +22,25 @@
 .header > div {
   display: flex;
   align-items: center;
+  flex: 1 0;
+  align-self: stretch;
+}
+
+.header > div > div:first-child {
+  display: flex;
+  align-items: center;
   gap: .6rem;
   padding: 0;
   flex: 1 0;
   align-self: stretch;
 }
 
-.header > div > h1 {
+.header > div > div > h1 {
   color: var(--txt-primary);
   font-size: 2.2rem;
   font-style: normal;
   font-weight: 600;
   line-height: 3.2rem;
-  flex: 1 0;
   text-align: left;
 }
 
@@ -45,11 +51,21 @@
 }
 
 @media (max-width: 768px) {
-  .header > div > div {
-    gap: 0;
+  .header > div > div:first-child {
+    gap: .8rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
   }
 
-  .header > div > h1 {
+  .header > div > div:last-child {
+    flex-direction: column-reverse;
+    gap: .8rem;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .header > div > div > h1 {
     font-size: 1.8rem;
     font-style: normal;
     font-weight: 600;

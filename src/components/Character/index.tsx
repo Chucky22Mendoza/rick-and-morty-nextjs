@@ -9,6 +9,12 @@ type Props = {
   character: ICharacter;
 };
 
+/**
+ * Renders a character component with the provided character data.
+ *
+ * @param {Props} character - The character data to display.
+ * @returns {JSX.Element} A React component representing the character.
+ */
 function Character({ character }: Props) {
   return (
     <Link href={`/${character.id}`} className={styles.character}>

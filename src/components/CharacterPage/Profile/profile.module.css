@@ -5,13 +5,13 @@
   align-items: flex-start;
   padding: 0;
   isolation: isolate;
-  width: 100%;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(17, 25, 40, 0.75);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
   border-radius: 1.6rem;
+  max-width: 45rem;
 }
 
 .order-counter {
@@ -38,6 +38,7 @@
 .order-counter > img {
   border-radius: 50%;
   margin-top: -25%;
+  border: .3rem solid #1C333A;
 }
 
 .order-counter > span {
@@ -53,13 +54,12 @@
 .order-counter > button {
   box-sizing: border-box;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
   padding: 1.1rem 1.8rem;
-  gap: .8rem;
   border: .2rem solid rgba(255, 255, 255, 0.125);
   border-radius: 3.6rem;
+  align-self: stretch;
+  text-align: center;
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -86,7 +86,6 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   padding: 0;
   gap: 1rem;
 }
@@ -122,9 +121,9 @@
 
 .rect {
   width: .1rem;
-  height: 2.4rem;
+  height: 100%;
   /* yimi/day/input/border */
-  background: var(--y-input-border);
+  background: var(--txt-inverse);
 }
 
 .navlink {
@@ -215,7 +214,7 @@
   opacity: .4;
 }
 
-@media (min-width: 769px) {
+@media (max-width: 428px) {
   .content {
     max-width: 32rem;
   }

@@ -7,11 +7,17 @@ type Props = {
   character: ICharacter;
 };
 
+/**
+ * Renders a component to display information about a character.
+ *
+ * @param character - The character object containing information to be displayed.
+ * @returns JSX element displaying the character's name, image, location, species, and status.
+ */
 function Slug({ character }: Props) {
   const dots: { [key: string]: string } = {
     'Alive': 'green',
     'Dead': 'red',
-    'Unknown': 'gray',
+    'unknown': 'gray',
   };
 
   return (

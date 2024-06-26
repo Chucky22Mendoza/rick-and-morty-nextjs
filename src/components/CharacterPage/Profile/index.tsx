@@ -7,28 +7,47 @@ type Props = {
   character: ICharacter;
 };
 
+interface LocationData {
+  name: string;
+  type: string;
+  dimension: string;
+}
+
+interface EpisodeData {
+  name: string;
+  episode: string;
+}
+
+/**
+ * Profile component displays detailed information about a character.
+ * It fetches and displays data about the character's first episode, origin, and last known location.
+ *
+ * @param {Props} character - The character object containing information to be displayed.
+ * @returns {JSX.Element} A React component displaying the character's details.
+ */
 function Profile({ character }: Props) {
   const dots: { [key: string]: string } = {
     'Alive': 'green',
     'Dead': 'red',
-    'Unknown': 'gray',
+    'unknown': 'gray',
   };
 
-  const [firstEpisode, setFirstEpisode] = useState<{ episode: string, name: string } | null>(null);
+  const [firstEpisode, setFirstEpisode] = useState<EpisodeData | null>(null);
+  const [origin, setOrigin] = useState<LocationData | null>(null);
+  const [location, setLocation] = useState<LocationData | null>(null);
+
+  function loadData<T>(url: string, callback: (response: T | null) => void) {
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => callback(data))
+        .catch((err) => callback(null));
+  }
 
   useEffect(() => {
-    const loadEpisode = async () => {
-      await fetch(character.episode[0])
-        .then((response) => response.json())
-        .then(({ episode, name }) => setFirstEpisode({ episode, name }))
-        .catch((err) => setFirstEpisode(null));
-    }
-
-    loadEpisode();
-    return () => {
-      loadEpisode();
-    };
-  }, [character.episode]);
+    if (character.episode[0]) loadData(character.episode[0], setFirstEpisode);
+    if (character.origin.url) loadData(character.origin.url, setOrigin);
+    if (character.location.url) loadData(character.location.url, setLocation);
+  }, [character.episode, character.location.url, character.origin.url]);
 
   return (
     <div className={styles.content}>
@@ -38,13 +57,17 @@ function Profile({ character }: Props) {
         <button className={styles[dots[character.status as string]]} type="button">{character.status}</button>
         <div>
           <div>
-            <span>Last known location</span>
-            <h2>{character.location.name}</h2>
+            <span>First seen in</span>
+            <h2>{`Name ${origin?.name ?? 'Unknown'}`}</h2>
+            <h2>{origin?.dimension ?? 'Unknown'}</h2>
+            <h2>{`Type ${origin?.type ?? 'Unknown'}`}</h2>
           </div>
           <span className={styles.rect} />
           <div>
-            <span>First seen in</span>
-            <h2>{character.origin.name}</h2>
+            <span>Last known location</span>
+            <h2>{`Name ${location?.name ?? 'Unknown'}`}</h2>
+            <h2>{location?.dimension ?? 'Unknown'}</h2>
+            <h2>{`Type ${location?.type ?? 'Unknown'}`}</h2>
           </div>
         </div>
       </div>
@@ -55,8 +78,7 @@ function Profile({ character }: Props) {
         {
           (firstEpisode !== null) && (
             <>
-              <Item sub="First episode" info={firstEpisode.name} />
-              <Item sub="Episode code" info={firstEpisode.episode} />
+              <Item sub="First episode" info={`${firstEpisode.episode} - ${firstEpisode.name}`} />
             </>
           )
         }

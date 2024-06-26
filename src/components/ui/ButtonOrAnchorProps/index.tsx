@@ -2,7 +2,7 @@
 /* eslint-disable react/button-has-type */
 import React from 'react';
 
-// Props de botón
+// Button props
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   href?: undefined;
 };
@@ -12,21 +12,21 @@ type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href?: string;
 };
 
-// Opciones de entrada / salida
+// in / out options
 type Overload = {
   (props: ButtonProps): JSX.Element;
   (props: AnchorProps): JSX.Element;
 };
 
-// Guard para verificar si existe href en props
+// Guard to verify if href exists in props
 const hasHref = (props: ButtonProps | AnchorProps): props is AnchorProps => 'href' in props;
 
-// Componente
+// Component
 const ButtonOrAnchorProps: Overload = function returned(props: ButtonProps | AnchorProps) {
   const { children } = props;
-  // renderizado de anchor
+  // render anchor
   if (hasHref(props)) return <a {...props}>{children}</a>;
-  // renderizado de botón
+  // render button
   return <button type={props?.type ?? 'button'} {...props} />;
 };
 

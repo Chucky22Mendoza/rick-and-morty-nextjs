@@ -5,6 +5,12 @@ import { ButtonAnchorSmallProps } from '@/types/ButtonProps';
 import ButtonOrAnchorProps from '../ButtonOrAnchorProps';
 import styles from './small-button.module.css';
 
+/**
+ * Renders a small button component based on the provided props.
+ *
+ * @param {ButtonAnchorSmallProps} props - The props for the small button component.
+ * @returns {React.ReactElement} A small button component.
+ */
 function SmallButton({
   buttonType,
   text = null,

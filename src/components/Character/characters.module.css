@@ -103,3 +103,9 @@
     background-color: var(--color-primary);
   }
 }
+
+@media (max-width: 428px) {
+  .character {
+    width: 100%;;
+  }
+}

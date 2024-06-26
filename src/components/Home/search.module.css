@@ -1,0 +1,30 @@
+.empty {
+  display: flex;
+  padding: 4rem var(--spacing-s-4, 1.6rem);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-s-1, 0.4rem);
+  align-self: stretch;
+  border-radius: 4.6rem;
+  height: 100%;
+}
+
+.empty > div {
+  display: flex;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0.3rem 0.2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty > h2 {
+  color: var(--color-primary);
+  text-align: center;
+  font-size: 2.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 3.2rem;
+  letter-spacing: 0.01rem;
+}

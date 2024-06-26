@@ -7,6 +7,13 @@ type Props = {
   info: string;
 }
 
+/**
+ * Renders a profile item component with the provided sub and info text.
+ *
+ * @param {string} sub - The sub text to display.
+ * @param {string} info - The info text to display.
+ * @returns {JSX.Element} Profile item component with sub and info text.
+ */
 function Item({ sub, info }: Props) {
   return (
     <div className={styles.navlink}>
@@ -15,7 +22,7 @@ function Item({ sub, info }: Props) {
         <h2>{sub}</h2>
       </div>
       <div>
-        <h2>{info}</h2>
+        <h2 style={{ textAlign: 'right' }}>{info}</h2>
       </div>
     </div>
   )

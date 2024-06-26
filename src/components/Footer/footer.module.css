@@ -1,0 +1,93 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem 14rem;
+  gap: 3rem;
+  width: 100%;
+  max-width: 76.3rem;
+}
+
+.content > p {
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  text-align: center;
+  letter-spacing: 0.04rem;
+  /* yimi/day/text/placeholder10 */
+  color: var(--y-text-placeholder10);
+}
+
+.content > p > span.color {
+  font-weight: 500;
+  color: var(--y-scales-decoration-dark-orange);
+}
+
+.dev {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  gap: .6rem;
+  background: var(--txt-inverse);
+  border: .2rem solid var(--color-secondary);
+  border-radius: 3rem;
+  transition: all .3s;
+}
+
+.dev > span, .dev > p {
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0.025rem;
+  transform: all .3s;
+}
+
+.dev > p {
+  font-weight: 500;
+  color: var(--color-tertiary);
+  transform: all .2s;
+}
+
+.dev:hover {
+  background-color: var(--color-primary);
+}
+
+.dev:hover > span {
+  color: var(--txt-inverse);
+}
+
+.content > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.content > div > a > img {
+  transition: all .3s;
+}
+
+.content > div > a:hover > img {
+  opacity: .65;
+}
+
+@media (min-width: 769px) {
+  .content {
+    max-width: 120rem;
+    padding: 3rem 1rem 7rem 1rem;
+  }
+}

@@ -77,3 +77,34 @@
   transition: all .5s;
   overflow: hidden;
 }
+
+.filter {
+  display: flex;
+  gap: .6rem;
+  padding: .6rem .8rem;
+  background-color: var(--color-primary);
+  border-radius: 1.6rem;
+  transition: all .3s;
+}
+
+.filter > span {
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--txt-inverse)
+}
+
+.filter > button {
+  padding: .2rem;
+  border-radius: 50%;
+  transition: all .3s;
+}
+
+.filter > button:hover {
+  background-color: var(--txt-inverse);
+}
+
+.events {
+  display: flex;
+  gap: 0;
+}
