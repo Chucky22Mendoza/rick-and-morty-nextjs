@@ -44,17 +44,17 @@ function Profile({ character }: Props) {
   }
 
   useEffect(() => {
-    if (character.episode[0]) loadData(character.episode[0], setFirstEpisode);
-    if (character.origin.url) loadData(character.origin.url, setOrigin);
-    if (character.location.url) loadData(character.location.url, setLocation);
-  }, [character.episode, character.location.url, character.origin.url]);
+    if (character?.episode && character.episode[0]) loadData(character.episode[0], setFirstEpisode);
+    if (character.origin?.url) loadData(character.origin.url, setOrigin);
+    if (character.location?.url) loadData(character.location.url, setLocation);
+  }, [character.episode, character.location?.url, character.origin?.url]);
 
   return (
     <div className={styles.content}>
       <div className={styles['order-counter']}>
-        <Image src={character.image} alt="Avatar" width={150} height={150} />
+        {character.image && <Image src={character.image} alt="Avatar" width={150} height={150} />}
         <span>{character.name}</span>
-        <button className={styles[dots[character.status as string]]} type="button">{character.status}</button>
+        <button className={styles[dots[character.status ?? 'unknown' as string]]} type="button">{character.status ?? 'unknown'}</button>
         <div>
           <div>
             <span>First seen in</span>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import InputFilter from '../ui/InputFilter';
 import SmallButton from '../ui/SmallButton';
 import styles from './home.module.css';
 
@@ -41,7 +40,7 @@ function ListEvents({ page, setPage, maxPages, isLoading }: Props) {
         <div className={active ? styles.active : ''}>
           {
             Array.from({ length: maxPages }, ((_, i) => (
-              <div className={page === i + 1 ? styles.selected : undefined}>
+              <div key={`page-${i + 1}`} className={page === i + 1 ? styles.selected : undefined}>
                 <button
                   onClick={() => {
                     setPage(i + 1);

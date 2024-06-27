@@ -15,6 +15,7 @@ type Props = {
  * @returns {JSX.Element} Profile item component with sub and info text.
  */
 function Item({ sub, info }: Props) {
+  if (sub === '' || info === '') return null;
   return (
     <div className={styles.navlink}>
       <div>

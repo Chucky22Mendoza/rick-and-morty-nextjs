@@ -20,7 +20,9 @@ type Props = {
 function CharacterPage({ character }: Props) {
   const addCharacter = useLastVisitedStore((state) => state.addCharacter);
   useEffect(() => {
-    addCharacter(character);
+    if (character) {
+      addCharacter(character);
+    }
   }, []);
 
   return (

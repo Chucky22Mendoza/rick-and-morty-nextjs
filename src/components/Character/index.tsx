@@ -18,12 +18,12 @@ type Props = {
 function Character({ character }: Props) {
   return (
     <Link href={`/${character.id}`} className={styles.character}>
-      <Suspense fallback={<SkeletonLoader />}>
+      <Suspense fallback={<SkeletonLoader data-testid="suspense-img" />}>
         <Image src={character.image} alt={character.name} className="img-fluid rounded-pill" width={200} height={200} />
       </Suspense>
       <div className={styles.info}>
         <h3>{character.name}</h3>
-        <span>{`Origin: ${character.origin && character.origin.name}`}</span>
+        <span>{`Origin: ${character?.origin?.name ?? 'Unknown'}`}</span>
       </div>
     </Link>
   );

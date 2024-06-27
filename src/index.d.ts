@@ -40,7 +40,7 @@ interface ICharacter {
   /**
    * Represents a property 'status' of type string.
    */
-  status: string;
+  status?: string;
   /**
    * Represents a property 'species' of type string.
    */
@@ -72,31 +72,31 @@ interface ICharacter {
   /**
    * Represents a property 'url' of type string.
    */
-  url: string;
+  url?: string;
   /**
    * Represents a property 'created' of type string.
    */
-  created: string;
+  created?: string;
 }
 
 interface IOrigin {
   /**
    * Represents a property 'name' of type string.
    */
-  name: string;
+  name?: string | null;
   /**
    * Represents a property 'url' of type string.
    */
-  url: string;
+  url?: string | null;
 }
 
 interface ILocation {
   /**
    * Represents a property 'name' of type string.
    */
-  name: string;
+  name?: string | null;
   /**
    * Represents a property 'url' of type string.
    */
-  url: string;
+  url?: string | null;
 }

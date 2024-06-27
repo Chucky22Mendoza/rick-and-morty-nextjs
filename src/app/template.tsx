@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import styles from './page.module.css';
 import Footer from '@/components/Footer';
+import styles from './page.module.css';
 
 /**
  * Renders a template layout with a Navbar, main content area, and Footer.

@@ -17,15 +17,23 @@ export async function getProcessData(page: number = 1, name: string | null = nul
     });
 
     if (!response.ok) {
-      const result = await response.json();
-      console.error(result);
-      throw new Error('Failed to fetch data');
+      // const result = await response.json();
+      // console.error(result);
+      return {
+        results: [],
+        info: {
+          count: 0,
+          next: '',
+          pages: 0,
+          prev: '',
+        }
+      };
     }
 
     const resJson = await response.json();
     return resJson as IResponseData;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return {
       results: [],
       info: {
@@ -54,15 +62,15 @@ export async function getSingleCharacterData(characterId: number): Promise<IChar
     });
 
     if (!response.ok) {
-      const result = await response.json();
-      console.error(result);
-      throw new Error('Failed to fetch data');
+      // const result = await response.json();
+      // console.error(result);
+      return null;
     }
 
     const resJson = await response.json();
     return resJson as ICharacter;
   } catch (error) {
-    console.log(error);
-    return {} as ICharacter;
+    // console.log(error);
+    return null;
   }
 }

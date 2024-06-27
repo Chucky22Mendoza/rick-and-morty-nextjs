@@ -15,7 +15,7 @@ function EmptySearch() {
       <div>
         <Image src="/danger.svg" width={32} height={32} alt="danger" />
       </div>
-      <h2>Intenta otra búsqueda</h2>
+      <h2>Try again with another search</h2>
     </section>
   );
 }

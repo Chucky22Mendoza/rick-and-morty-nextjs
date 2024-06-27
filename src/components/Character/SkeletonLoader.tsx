@@ -9,7 +9,7 @@ import styles from './characters.module.css';
  */
 function SkeletonLoader() {
   return (
-    <div className={styles.skeleton}>
+    <div className={styles.skeleton} data-testid="suspense-fallback">
       <Loader />
     </div>
   );

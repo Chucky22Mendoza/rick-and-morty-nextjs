@@ -11,7 +11,7 @@ import Link from 'next/link';
  */
 function Footer() {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <div className={styles.content}>
         <Link className={styles.dev} href="https://jesus-mendoza.pages.dev/" rel="noreferrer" target="_blank">
           <span>Desarrollado por: </span>
@@ -26,7 +26,7 @@ function Footer() {
           </Link>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

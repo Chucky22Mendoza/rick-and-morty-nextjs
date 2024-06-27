@@ -26,10 +26,10 @@ function Slug({ character }: Props) {
       <div>
         <div className={styles.info}>
           <h2>{character.name}</h2>
-          <span>{`${character.location.name} - ${character.species}`}</span>
+          <span>{`${character?.location?.name ?? 'unknown'} - ${character?.species && character.species !== '' ? character.species : 'unknown'}`}</span>
         </div>
-        <div className={`${styles.dot} ${styles[dots[character.status as string]]}`}>
-          <span>{character.status}</span>
+        <div className={`${styles.dot} ${styles[dots[character.status ?? 'unknown'  as string]]}`}>
+          <span>{character.status ?? 'unknown'}</span>
         </div>
       </div>
     </Link>

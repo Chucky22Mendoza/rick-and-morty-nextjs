@@ -5,6 +5,6 @@
   justify-content: flex-start;
   flex: 1 0 0;
   align-self: stretch;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   background-color: var(--color-tertiary);
 }

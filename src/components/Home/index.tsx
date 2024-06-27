@@ -21,7 +21,7 @@ async function loadData(page: number = 1, name: string | null = null) {
   const infoState = useInfoStore.getState();
   characterState.setIsLoading(true);
   const data = await getProcessData(page, name);
-  characterState.setCharacters(data.results);
+  characterState.setCharacters(data?.results ?? []);
   characterState.setIsLoading(false);
   infoState.setInfo(data.info);
 }
@@ -38,26 +38,16 @@ function Home() {
   const maxPages = useInfoStore((state) => state.info.pages);
   const characterVisited = useLastVisitedStore((state) => state.characterVisited);
   const [page, setPage] = useState<number>(1);
-  const [isFilterClicked, setIsFilterClicked] = useState<boolean>(false);
+  const [hint, setHint] = useState<string>('');
   const [nameFilter, setNameFilter] = useState<string | null>(null);
   const [toggleVisited, setToggleVisited] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!isFilterClicked) {
-      loadData(page);
-    }
-  }, [page, isFilterClicked]);
-
-  useEffect(() => {
-    if (isFilterClicked && nameFilter) {
-      loadData(page, nameFilter);
-      return () => {};
-    }
-
-    if (!nameFilter) {
-      loadData(1);
-    }
-  }, [page, isFilterClicked, nameFilter]);
+    setPage(1);
+    setNameFilter('');
+    loadData(1, '');
+    setHint('');
+  }, []);
 
   return (
     <>
@@ -99,19 +89,21 @@ function Home() {
           <>
             <InputFilter
               propsInput={{
-                placeholder: "Filtrar por nombre",
+                placeholder: "Filter by name",
                 value: nameFilter ?? '',
                 onKeyDown: (event: React.KeyboardEvent) => {
                   if (event.key === 'Enter') {
-                    setIsFilterClicked(true);
+                    loadData(1, nameFilter);
                     setPage(1);
+                    setHint(nameFilter ?? '');
                   }
                 }
               }}
               onChange={setNameFilter}
               onClick={() => {
-                setIsFilterClicked(true);
+                loadData(1, nameFilter);
                 setPage(1);
+                setHint(nameFilter ?? '');
               }}
             />
             {
@@ -121,20 +113,24 @@ function Home() {
                     isLoading={isLoading}
                     maxPages={maxPages}
                     page={page}
-                    setPage={setPage}
+                    setPage={(value: number) => {
+                      setPage(value);
+                      loadData(value, nameFilter);
+                    }}
                   />
                 ) : null
             }
           </>
         )}
-        blockTitleElement={isFilterClicked && nameFilter && (
+        blockTitleElement={hint && (
           <div className={styles.filter}>
-            <span>{nameFilter}</span>
+            <span>{hint}</span>
             <button
               onClick={() => {
-                setIsFilterClicked(false);
+                setHint('');
                 setNameFilter('');
                 setPage(1);
+                loadData(1);
               }}
             >
               <Image src="/close.svg" width={10} height={10} alt="close" />
@@ -148,7 +144,7 @@ function Home() {
               <div className={styles.rows}>
                 {
                   Array.from({ length: 20 }, ((_, i) => (
-                    <CharacterLoader key={`skeleton-${i}`} />
+                    <CharacterLoader key={`skeleton-${i}`} data-testid="loader-skeleton" />
                   )))
                 }
               </div>
